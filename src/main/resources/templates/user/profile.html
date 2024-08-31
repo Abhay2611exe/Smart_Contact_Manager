@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  th:replace="~{base :: parent(~{::#content}, ~{::title},~{::script})}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title data-th-text="${loggedInUser.name}+' | SCM Profile'"></title>
+  </head>
+  <body>
+
+    <div  id="content">
+
+          <!-- SideBar content for the loggedInUsers -->
+       <div data-th-if="${loggedInUser}">
+        <div data-th-replace="~{user/sidebar :: sidebar}"></div>
+        </div>
+
+        <div class="sm:pl-64 pt-20">
+            <div class="flex flex-col justify-center md:pt-28 items-center">
+              <!-- Profile card  -->
+              <div class="max-w-2xl w-full rounded overflow-hidden shadow-lg p-6 bg-white">
+                <!-- Profile Picture -->
+                <div class="flex justify-center mb-4">
+                    <img
+                        onerror="this.onerror=null, this.src='https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png'"
+                        th:src="@{${loggedInUser.profilPic}}"
+                        src="https://flowbite.com/docs/images/logo.svg"
+                        class="h-44 w-auto rounded-full object-cover"
+                        alt="User Pic"
+                    />
+                </div>
+                
+                <!-- User Information -->
+                <div class="text-center">
+                    <h2 class="text-xl font-bold mb-2" th:text="${loggedInUser.name}">User Name</h2>
+                    <p class="text-gray-600" th:text="${loggedInUser.about}">About the user</p>
+                </div>
+                
+                <div class="mt-4">
+                    <ul class="text-gray-700">
+                        <li class="mb-2">
+                            <strong>Email:</strong>
+                            <span th:text="${loggedInUser.email}">user@example.com</span>
+                        </li>
+                        <li class="mb-2">
+                            <strong>Phone:</strong>
+                            <span th:text="${loggedInUser.phoneNumber}">(123) 456-7890</span>
+                        </li>
+                        <li class="mb-2">
+                            <strong>User ID:</strong>
+                            <span th:text="${loggedInUser.userId}">UserID12345</span>
+                        </li>
+                        <li class="mb-2">
+                            <strong>Email Verified:</strong>
+                            <span th:text="${loggedInUser.emailVerified ? 'Yes' : 'No'}">No</span>
+                        </li>
+                        <li class="mb-2">
+                            <strong>Phone Verified:</strong>
+                            <span th:text="${loggedInUser.phoneVerified ? 'Yes' : 'No'}">No</span>
+                        </li>
+                        <li class="mb-2">
+                            <strong>Enabled:</strong>
+                            <span th:text="${loggedInUser.enabled ? 'Yes' : 'No'}">No</span>
+                        </li>
+                        <li class="mb-2">
+                            <strong>Provider:</strong>
+                            <span th:text="${loggedInUser.provider}">SELF</span>
+                        </li>
+                        <li class="mb-2">
+                            <strong>Provider User ID:</strong>
+                            <span th:text="${loggedInUser.providerUserId}">ProviderUserID123</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+          </div>
+
+    </div>
+    
+
+    <script>
+      console.log("This is profile page");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content}, ~{::title},~{::script})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" data-th-href="@{'/css/output.css'}"> -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+    <title>Success</title>
+</head>
+<body>
+
+    <div id="content" class="text-center mt-2 md:w-1/2 mx-auto">
+    <div th:replace="~{message :: messagebox}"></div>
+    <button class="px-3 py-2 bg-gray-400 text-center rounded hover:bg-gray-500">Login</button>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+</body>
+    
+</html>

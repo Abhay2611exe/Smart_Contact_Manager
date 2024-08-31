@@ -1,0 +1,43 @@
+<div th:fragment="contact_modal">
+  <!-- Main modal -->
+  <div id="view_contact_modal" tabindex="-1" aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <!-- Modal header -->
+        <div class="flex items-center justify-center p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+
+          <!-- Image And Name -->
+          <div class="p-4 md:p-5 space-y-2">
+            <img id="contact_image" class="w-20 h-20 rounded-full text-center" alt="Jese image" />
+            <h2 id="contact_name" class="text-2xl font-semibold text-center"></h2>
+            <p id="contact_email" class="font-semibold text-center"></p>
+           </div>
+
+        </div>
+
+
+        <!-- Modal body -->
+         <!-- phoneNumber -->
+        <div class="p-4 md:p-5 space-y-4">
+          <p>Phone Number:  <span id="contact_phoneNumber"></span></p>
+        </div>
+
+        <!-- Email -->
+        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+          <div class="p-4 md:p-5 space-y-4">
+            <p>address:  <span id="contact_address"></span></p>
+          </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="flex items-center justify-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">  
+          <button onclick="closeContactModal()" type="button"
+            class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
